@@ -5,7 +5,7 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import axios from 'axios'; 
 export const Contact = () => {
   const formInitialDetails = {
     firstName: '',
@@ -14,8 +14,10 @@ export const Contact = () => {
     phone: '',
     message: ''
   };
+
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -26,46 +28,48 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true); 
     setButtonText('Sending...');
+
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(formDetails.phone)) {
+      toast.error('Invalid phone number. It must be a 10-digit number.', {
+        position: "top-center"
+      });
+      setIsSubmitting(false);
+      setButtonText('Send');
+      return;
+    }
+
     try {
-      let response = await fetch('http://localhost:5000/contact', {
-        method: 'POST',
+      const response = await axios.post('http://localhost:8000/contact', formDetails, {
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(formDetails)
+        }
       });
-      
-      const result = await response.text(); // Get raw response as text
-      console.log('Raw response:', result);
-      
-      let jsonResult;
-      try {
-        jsonResult = JSON.parse(result); // Attempt to parse JSON
-      } catch (error) {
-        console.error('Error parsing JSON:', error);
-        throw new Error('Invalid JSON response');
-      }
-
-      if (jsonResult.code === 200) {
+  
+      // Axios automatically parses the JSON response, no need to manually parse it
+     
+  
+      if (response.status === 200) {
         toast.success('Message sent successfully', {
           position: "top-center",
           style: { maxWidth: "300px" }
         });
       } else {
         toast.error('Something went wrong, please try again later.', {
-          position: "top-center",
-          style: {}
+          position: "top-center"
         });
       }
     } catch (error) {
       console.error('Error:', error);
-      toast.error('Something went wrong, please try again later.', {
+      toast.error('Something went wrong, please try again later. in catch', {
         position: "top-center"
       });
     } finally {
       setButtonText('Send');
-      setFormDetails(formInitialDetails);
+      setIsSubmitting(false); // Enable the button
+      setFormDetails(formInitialDetails); // Reset the form
     }
   };
 
@@ -97,6 +101,7 @@ export const Contact = () => {
                           value={formDetails.firstName}
                           placeholder='First Name'
                           onChange={(e) => onFormUpdate('firstName', e.target.value)}
+                          required
                         />
                       </Col>
                       <Col size={12} sm={6} className='px-1'>
@@ -105,6 +110,7 @@ export const Contact = () => {
                           value={formDetails.lastName}
                           placeholder='Last Name'
                           onChange={(e) => onFormUpdate('lastName', e.target.value)}
+                          required
                         />
                       </Col>
                       <Col size={12} sm={6} className='px-1'>
@@ -113,6 +119,7 @@ export const Contact = () => {
                           value={formDetails.email}
                           placeholder='Email Address'
                           onChange={(e) => onFormUpdate('email', e.target.value)}
+                          required
                         />
                       </Col>
                       <Col size={12} sm={6} className='px-1'>
@@ -122,6 +129,7 @@ export const Contact = () => {
                           placeholder='Phone No.'
                           maxLength="10"
                           onChange={(e) => onFormUpdate('phone', e.target.value)}
+                          required
                         />
                       </Col>
                       <Col size={12} className='px-1'>
@@ -130,8 +138,9 @@ export const Contact = () => {
                           value={formDetails.message}
                           placeholder='Message'
                           onChange={(e) => onFormUpdate('message', e.target.value)}
+                          required
                         ></textarea>
-                        <button type='submit'>
+                        <button type='submit' disabled={isSubmitting}>
                           <span>{buttonText}</span>
                         </button>
                       </Col>

@@ -36,7 +36,8 @@ export const Skills = () => {
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn ">
                         <h2>Skills</h2>
-                        <p className="skill-text">Skilled Frontend Developer and UI Designer with expertise<br></br>  in HTML, CSS, JavaScript, and modern frameworks.</p>
+                        <p className="skill-text">
+                        Proficient in Power BI for real-time dashboards, SQL for data management, and MS Excel for analysis, enabling data-driven decision-making through insights into sales trends and customer segmentation.</p>
                         <Carousel autoPlay="true" autoPlaySpeed="3000" responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
                                 <img src={meter1} alt="Image" />

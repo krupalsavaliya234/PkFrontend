@@ -1,6 +1,7 @@
 import { Col } from "react-bootstrap";
 import githubimg from "../assets/img/github.png";
 import reactpng from "../assets/img/figmalogo.png";
+// import reactpng from ""
 import livedemoimg from "../assets/img/livedemo.png";
 
 function ProjectCard({ title, description, imgUrl,projectLink })  {

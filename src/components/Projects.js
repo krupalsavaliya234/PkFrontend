@@ -9,7 +9,7 @@ import projImg5 from "../assets/img/Microsoft.png";
 import projImg6 from "../assets/img/Arizona.png";
 import projImg7 from "../assets/img/scerti5.png";
 
-import projImg12 from "../assets/img/project4.png";
+import projImg12 from "../assets/img/food.png";
 
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
@@ -24,26 +24,26 @@ export const Projects = () => {
     {
       title: "Pizza Sales Analysis",
       description: "Used Power BI to analyze pizza sales.",
-      imgUrl: projImg1,
-      projectLink:"https://github.com/"
+      imgUrl: projImg12,
+      projectLink:"https://github.com/Pritam-Ku-Moharana/Pizza_Sales_Analysis"
     },
     {
       title: "Smart Hydro Automation",
       description: "Built an IoT system to automate garden watering based on soil moisture levels.",
-      imgUrl: projImg2,
-      projectLink:"https://github.com/"
+      imgUrl: projImg1,
+      projectLink:"https://github.com/Pritam-Ku-Moharana/Smart_Hydro_Automation"
     },
     {
     title: "E-commerce Data Analysis",
     description: "Utilized SQL to analyze customer behavior, product performance.",
-    imgUrl: projImg12,
-    projectLink:"https://github.com/"
+    imgUrl:  projImg2,
+    projectLink:"https://github.com/Pritam-Ku-Moharana/E_commerce_Analysis"
     },
     {
       title: "CPI Inflation Analysis, National Statistical Office",
       description: "Analyzed Consumer Price Index (CPI) data to identify key contributing.",
       imgUrl: projImg3,
-      projectLink:"https://github.com/"
+      projectLink:"https://github.com/Pritam-Ku-Moharana/CPI_Analysis"
     }
     
   ];
