@@ -1,8 +1,8 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import { UiProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project1.png";
-import projImg2 from "../assets/img/project3.png";
+import projImg1 from "../assets/img/smart.jpg";
+import projImg2 from "../assets/img/ecomm.jpg";
 import projImg3 from "../assets/img/project2.png";
 import projImg4 from "../assets/img/hackerRank.png";
 import projImg5 from "../assets/img/Microsoft.png";
