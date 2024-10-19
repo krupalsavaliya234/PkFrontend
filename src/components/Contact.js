@@ -42,7 +42,7 @@ export const Contact = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/contact', formDetails, {
+      const response = await axios.post('https://pritam-theta.vercel.app/contact', formDetails, {
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         }
