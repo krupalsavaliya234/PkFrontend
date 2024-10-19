@@ -17,7 +17,7 @@ const experiences = [
         companyImage: companayimg2  ,
         role: "Schooling",
         companyName: "S.A.I.C.E Matrubhaban",
-        jobDuration:"July 2022 - Present",
+        jobDuration:"July 2022",
 
         
     },
