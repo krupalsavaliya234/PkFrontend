@@ -8,7 +8,7 @@ import projImg4 from "../assets/img/hackerRank.png";
 import projImg5 from "../assets/img/Microsoft.png";
 import projImg6 from "../assets/img/Arizona.png";
 import projImg7 from "../assets/img/scerti5.png";
-
+// jewe
 import projImg12 from "../assets/img/food.png";
 
 import colorSharp2 from "../assets/img/color-sharp2.png";
